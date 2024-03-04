@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Event - stopPropagation()</title>
+</head>
+<body>
+    <!-- <label for="xxx">Label 2</label>
+    <input type="checkbox" name="chkbox" id="xxx">
+    <br> -->
+    <label class="lbl">
+        Label 1<input type="checkbox" name="chkbox" id="chkbox">
+    </label>
+
+    <script>
+        var lbl = document.querySelector('.lbl');
+        var chkbox = document.querySelector('#chkbox');
+
+        lbl.addEventListener('click', function(e) {
+            // console.log('lbl click');
+            console.log(e.target.tagName, 1);
+            console.log(this.tagName, 1);
+        }, false);
+
+        chkbox.addEventListener('click', function(e) {
+            // console.log('chkbox click');
+            // e.stopPropagation();
+            console.log(e.target.tagName, 2);
+            console.log(this.tagName, 2);
+        }, false);
+    </script>
+</body>
+
+</html>

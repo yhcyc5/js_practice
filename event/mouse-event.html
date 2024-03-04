@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse Events</title>
+
+    <style>
+        .outer {
+            background-color: aqua;
+            width: 400px;
+            height: 200px;
+        }
+
+        .inner {
+            background-color: beige;
+            width: 200px;
+            height: 100px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="outer">Outer
+        <div class="inner">Inner</div>
+    </div>
+
+    <script>
+        let outer = document.querySelector('.outer');
+        let inner = document.querySelector('.inner');
+
+        outer.addEventListener('mouseenter', function () {
+            console.log('outer-enter');
+        }, false);
+        inner.addEventListener('mouseenter', function () {
+            console.log('inner-enter');
+        }, false);
+
+        outer.addEventListener('mouseover', function () {
+            console.log('outer-over');
+        }, false);
+        inner.addEventListener('mouseover', function () {
+            console.log('inner-over');
+        }, false);
+    </script>
+</body>
+
+</html>

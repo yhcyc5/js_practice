@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Event Flow</title>
+    <style>
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="parent">Parent
+            <div id="child">Child</div>
+        </div>
+    </div>
+    <button id="btn">Click</button>
+    <a href="https://www.google.com">
+        <button id="btn">Link</button>
+    </a>
+
+    <img src="../img/image.jpg" onerror="this.src='../img/default.jpg'" alt="image">
+
+
+    <script>
+        var btn = document.getElementById('btn');
+        var parent = document.getElementById('parent');
+        var child = document.getElementById('child');
+
+        parent.addEventListener('click', function () {
+            console.log('Parent Bubbling');
+        }, false);
+
+        parent.addEventListener('click', function () {
+            console.log('Parent Capturing');
+        }, true);
+
+        child.addEventListener('click', function () {
+            console.log('Child Bubbling');
+        }, false);
+
+        child.addEventListener('click', function () {
+            console.log('Child Capturing');
+        }, true);
+
+        const clickHandler = function () {
+            console.log('Hi');
+        }
+
+        const clickHandler2 = function () {
+            console.log('Bye');
+        }
+
+        btn.addEventListener('click', clickHandler, false);
+        btn.addEventListener('click', clickHandler2, false);
+
+        btn.removeEventListener('click', clickHandler);
+
+        window.addEventListener("beforeunload", (event) => {
+            // Cancel the event as stated by the standard.
+            event.preventDefault();
+            // Chrome requires returnValue to be set.
+            event.returnValue = "";
+        });
+
+
+    </script>
+</body>
+
+</html>

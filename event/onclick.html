@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Event - onclick</title>
+
+</head>
+
+<body>
+    <button id="btn1">Click</button>
+    <button id="btn2" onclick="console.log('HiHi');">Click</button>
+
+    <script>
+        let btn = document.getElementById('btn1');
+
+        btn.onclick = function () {
+            console.log('Hi');
+        };
+
+        btn.onclick = null;
+        // window.onload = function (){
+        //     document.write("Hello world!");
+        // };
+    </script>
+    <!-- <script src="js.js"></script> -->
+</body>
+
+</html>

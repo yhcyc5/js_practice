@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Event - preventDefault()</title>
+</head>
+<body>
+    <a id="link" href="https://www.google.com">Google</a>
+
+    <script>
+        var link = document.querySelector('#link');
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Google');
+        }, false);
+    </script>
+</body>
+
+</html>

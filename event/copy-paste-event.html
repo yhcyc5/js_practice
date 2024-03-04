@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Event - Copy/Paste</title>
+</head>
+<body>
+    <p id="p">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis rutrum velit, vel faucibus nunc mollisa.
+        Aenean posuere sed ligula dapibus commodo. Phasellus vel porta turpis. Vivamus vel pulvinar mauris, eu cursus
+        mauris. Sed eu mauris consectetur, consectetur lectus eget, egestas lectus. Pellentesque efficitur semper erat,
+        eget varius ipsum varius quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
+        turpis egestas. Sed ante nibh, aliquet congue turpis ullamcorper, tincidunt lacinia eros. Morbi eu elit maximus,
+        ultricies neque ac, bibendum mauris. Aenean tellus nibh, tristique ac urna et, vulputate pretium ex. Sed at
+        massa magna. Nullam elementum ante est, a luctus tortor feugiat at.
+
+        Aliquam viverra augue vel sagittis tempus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+        posuere cubilia curae; Proin auctor imperdiet tristique. Suspendisse iaculis enim enim, et viverra augue tempus
+        eu. Aenean dapibus massa quis consequat imperdiet. Nullam commodo turpis ut nunc venenatis accumsan eu id erat.
+        Curabitur nulla elit, blandit eget libero a, pharetra tristique purus. Nulla condimentum nulla at enim ultrices
+        fermentum. Fusce non quam tortor.
+    </p>
+
+    <script>
+        let p = document.getElementById('p');
+
+        p.addEventListener('copy', function (e) {
+            let body_element = document.querySelector('body');
+
+            let selection = window.getSelection();
+            let copy_text = 'copyright: xxxxxx - ' + selection;
+            console.log(copy_text);
+
+            let newdiv = document.createElement('div');
+            newdiv.style.opacity = 0;
+
+            body_element.appendChild(newdiv);
+            newdiv.innerHTML = copy_text;
+
+            selection.selectAllChildren(newdiv);
+
+            window.setTimeout(function() {
+                body_element.removeChild(newdiv);
+            }, 0);
+        });
+
+    </script>
+</body>
+
+</html>

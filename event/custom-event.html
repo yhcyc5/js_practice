@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Events</title>
+</head>
+<body>
+    <p id="p">
+    </p>
+
+    <script>
+        let p = document.getElementById('p');
+        var event = new Event('bulid');
+
+        // 監聽事件 
+        p.addEventListener('bulid', function(e){
+
+        }, false);
+
+        // 觸發事件
+        p.dispatchEvent(event);
+
+
+        const event2 = new CustomEvent('bulid', { 'detail': p.dataset.time });
+
+        function eventHandler(e) {
+            log('The time is: ' + e.detail);
+        }
+    </script>
+</body>
+
+</html>
