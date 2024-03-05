@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event queue</title>
+</head>
+
+<body>
+    <script>
+        // console.log('start');
+
+        // (function () {
+        //     console.log('call function');
+
+        //     window.setTimeout(function () {
+        //         console.log('setTimeout');
+        //     }, 0);
+        // })();
+        // console.log('end');
+    </script>
+    <script>
+        // var startTime = new Date().getTime();
+
+        // window.setTimeout(function(){
+        //     var endTime = new Date().getTime();
+        //     console.log('Time elapsed: ' + (endTime - startTime) + ' ms');
+        // }, 1000);
+    </script>
+    <script>
+        var startTime = new Date().getTime();
+        var count = 0;
+
+        window.setInterval(function () {
+            var i = 0;
+            while (i++ < 99999999) { };
+        }, 0);
+
+        window.setInterval(function () {
+            var endTime = new Date().getTime();
+            count++;
+            console.log('Time elapsed: ' + (endTime - (startTime + count * 1000)) + ' ms');
+        }, 1000);
+    </script>
+</body>
+
+</html>

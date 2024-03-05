@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // for (var i = 0; i < 5; i++) {
+        //     (function (x) {
+        //         window.setTimeout(function () {
+        //             console.log(x);
+        //         }, x * 1000);
+        //     })(i);
+        // }
+    </script>
+    <script>
+        // void function saySomething (msg) {
+        //     console.log(msg);
+        // } ('Hello');
+
+        // saySomething (msg);
+    </script>
+    <script>
+
+        // let result = [];
+        // let step = 3;
+
+        // // A, B, C 分別代表 切青菜、切番茄、擺盤
+        // function funcA() {
+        //     window.setTimeout(function () {
+        //         result.push('A');
+        //         console.log('A');
+
+        //         if (result.length === step) {
+        //             funcD();
+        //         }
+        //     }, (Math.random() + 1) * 1000);
+        // }
+
+        // function funcB() {
+        //     window.setTimeout(function () {
+        //         result.push('B');
+        //         console.log('B');
+
+        //         if (result.length === step) {
+        //             funcD();
+        //         }
+        //     }, (Math.random() + 1) * 1000);
+        // }
+
+        // function funcC() {
+        //     window.setTimeout(function () {
+        //         result.push('C');
+        //         console.log('C');
+
+        //         if (result.length === step) {
+        //             funcD();
+        //         }
+        //     }, (Math.random() + 1) * 1000);
+        // }
+
+        // function funcD() {
+        //     console.log('D');
+        //     result = [];
+        // }
+
+        // funcA();
+        // funcB();
+        // funcC();
+    </script>
+
+    <script>
+        function serials(tasks, callback) {
+            let step = tasks.length;
+            let result = [];
+
+            function check(r) {
+                result.push(r);
+                if (result.length === step) {
+                    callback();
+                }
+            }
+
+            tasks.forEach(function (f) {
+                f(check);
+            });
+        }
+
+        function funcA(check) {
+            window.setTimeout(function () {
+                console.log('A');
+                check('A');
+            }, (Math.random() + 1) * 1000);
+        }
+
+        function funcB(check) {
+            window.setTimeout(function () {
+                console.log('B');
+                check('B');
+            }, (Math.random() + 1) * 1000);
+        }
+
+        function funcC(check) {
+            window.setTimeout(function () {
+                console.log('C');
+                check('C');
+            }, (Math.random() + 1) * 1000);
+        }
+
+        function funcD() {
+            console.log('D');
+        }
+
+        serials([funcA, funcB, funcC], funcD);
+    </script>
+
+
+</body>
+
+</html>
