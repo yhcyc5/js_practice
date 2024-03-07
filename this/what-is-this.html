@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is this</title>
+</head>
+
+<body>
+    <script>
+        // const getGender = function () {
+        //     return this.gender;
+        // };
+
+        // const people1 = {
+        //     gender: 'female',
+        //     getGender: getGender
+        // };
+
+        // const people2 = {
+        //     gender: 'male',
+        //     getGender: getGender
+        // };
+
+        // console.log(people1.getGender());
+        // console.log(people2.getGender());
+    </script>
+
+    <script>
+        // var foo = function () {
+        //     this.count++;
+        // };
+        // foo.count = 0;
+
+        // for (let i = 0; i < 5; i++) {
+        //     foo();
+        // }
+
+        // console.log(foo.count);
+    </script>
+
+    <script>
+        // var bar = function(){
+        //     console.log(this.a);
+        // };
+
+        // var foo = function(){
+        //     let a = 123;
+        //     this.bar();
+        // };
+
+        // foo();
+    </script>
+
+    <script>
+        // var obj = {
+        //     func1: function () {
+        //         // "use strict";
+        //         console.log(this);
+
+        //         var func2 = function () {
+        //             console.log(this);
+        //         };
+
+        //         func2();
+        //     }
+        // };
+
+        // obj.func1();
+    </script>
+
+    <script>
+        // el.addEventListener("click", function (event) {
+        //     console.log(event.currentTarget.textContent);
+
+        //     $ajax('[URL]', function (res) {
+        //         console.log(event.currentTarget.textContent, res);
+        //     });
+        // }, false);
+    </script>
+
+    <script>
+        // var obj = {
+        //     x: 123
+        // };
+
+        // var func = function () {
+        //     console.log(this.x);
+        // };
+
+        // func();
+        // func.bind(obj)();
+    </script>
+
+    <script>
+        // el.addEventListener("click", function (event) {
+        //     console.log(this.textContent);
+
+        //     $ajax('[URL]', res => {
+        //         console.log(that.textContent, res);
+        //     });
+        // }, false);
+    </script>
+
+    <script>
+        // function func() {
+        //     console.log(this.a);
+        // }
+
+        // var obj = {
+        //     a: 2,
+        //     foo: func
+        // };
+
+        // var func2 = obj.foo;
+        // func2();               // undefined
+    </script>
+
+    <script>
+        function foo(a) {
+            this.a = a;
+        }
+
+        var obj = new foo(123);
+        console.log(obj.a);
+    </script>
+</body>
+
+</html>
